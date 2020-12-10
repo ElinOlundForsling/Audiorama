@@ -53,23 +53,6 @@ var vizInit = function () {
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // var planeGeometry = new THREE.PlaneGeometry(800, 800, 20, 20);
-    // var planeMaterial = new THREE.MeshLambertMaterial({
-    //   color: 0x6904ce,
-    //   side: THREE.DoubleSide,
-    //   wireframe: true,
-    // });
-
-    // var plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    // plane.rotation.x = -0.5 * Math.PI;
-    // plane.position.set(0, 30, 0);
-    // group.add(plane);
-
-    // var plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
-    // plane2.rotation.x = -0.5 * Math.PI;
-    // plane2.position.set(0, -30, 0);
-    // group.add(plane2);
-
     var icosahedronGeometry = new THREE.IcosahedronGeometry(10, 4);
     var lambertMaterial = new THREE.MeshLambertMaterial({
       color: 0xff00ee,
@@ -121,9 +104,6 @@ var vizInit = function () {
       var upperMaxFr = upperMax / upperHalfArray.length;
       var upperAvgFr = upperAvg / upperHalfArray.length;
 
-      // makeRoughGround(plane, modulate(upperAvgFr, 0, 1, 0.5, 4));
-      // makeRoughGround(plane2, modulate(lowerMaxFr, 0, 1, 0.5, 4));
-
       makeRoughBall(
         ball,
         modulate(Math.pow(lowerMaxFr, 0.8), 0, 1, 0, 8),
@@ -159,23 +139,6 @@ var vizInit = function () {
             amp *
             treFr;
         vertex.multiplyScalar(distance);
-      });
-      mesh.geometry.verticesNeedUpdate = true;
-      mesh.geometry.normalsNeedUpdate = true;
-      mesh.geometry.computeVertexNormals();
-      mesh.geometry.computeFaceNormals();
-    }
-
-    function makeRoughGround(mesh, distortionFr) {
-      mesh.geometry.vertices.forEach(function (vertex, i) {
-        var amp = 2;
-        var time = Date.now();
-        var distance =
-          (noise.noise2D(vertex.x + time * 0.0003, vertex.y + time * 0.0001) +
-            0) *
-          distortionFr *
-          amp;
-        vertex.z = distance;
       });
       mesh.geometry.verticesNeedUpdate = true;
       mesh.geometry.normalsNeedUpdate = true;
