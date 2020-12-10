@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import SimplexNoise from 'simplex-noise';
-import css from './stylesheets/three.css';
+// import css from './stylesheets/three.css';
 
 //initialise simplex noise instance
 var noise = new SimplexNoise();
@@ -53,27 +53,27 @@ var vizInit = function () {
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    var planeGeometry = new THREE.PlaneGeometry(800, 800, 20, 20);
-    var planeMaterial = new THREE.MeshLambertMaterial({
-      color: 0x6904ce,
-      side: THREE.DoubleSide,
-      wireframe: true,
-    });
+    // var planeGeometry = new THREE.PlaneGeometry(800, 800, 20, 20);
+    // var planeMaterial = new THREE.MeshLambertMaterial({
+    //   color: 0x6904ce,
+    //   side: THREE.DoubleSide,
+    //   wireframe: true,
+    // });
 
-    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = -0.5 * Math.PI;
-    plane.position.set(0, 30, 0);
-    group.add(plane);
+    // var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    // plane.rotation.x = -0.5 * Math.PI;
+    // plane.position.set(0, 30, 0);
+    // group.add(plane);
 
-    var plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane2.rotation.x = -0.5 * Math.PI;
-    plane2.position.set(0, -30, 0);
-    group.add(plane2);
+    // var plane2 = new THREE.Mesh(planeGeometry, planeMaterial);
+    // plane2.rotation.x = -0.5 * Math.PI;
+    // plane2.position.set(0, -30, 0);
+    // group.add(plane2);
 
     var icosahedronGeometry = new THREE.IcosahedronGeometry(10, 4);
     var lambertMaterial = new THREE.MeshLambertMaterial({
       color: 0xff00ee,
-      wireframe: true,
+      wireframe: false,
     });
 
     var ball = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
@@ -121,8 +121,8 @@ var vizInit = function () {
       var upperMaxFr = upperMax / upperHalfArray.length;
       var upperAvgFr = upperAvg / upperHalfArray.length;
 
-      makeRoughGround(plane, modulate(upperAvgFr, 0, 1, 0.5, 4));
-      makeRoughGround(plane2, modulate(lowerMaxFr, 0, 1, 0.5, 4));
+      // makeRoughGround(plane, modulate(upperAvgFr, 0, 1, 0.5, 4));
+      // makeRoughGround(plane2, modulate(lowerMaxFr, 0, 1, 0.5, 4));
 
       makeRoughBall(
         ball,
