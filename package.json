@@ -2,10 +2,19 @@
   "name": "audiorama",
   "version": "1.0.0",
   "description": "Audio Visualizer",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Elin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^5.0.1",
+    "dat.gui": "^0.7.7",
+    "simplex-noise": "^2.4.0",
+    "style-loader": "^2.0.0",
+    "three": "^0.123.0",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
+  }
 }
